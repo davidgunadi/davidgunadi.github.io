@@ -16,7 +16,7 @@ export class Helper {
             }
         }
         if (duplicate === false) {
-            console.log(`${textToCheck} does not exist in ${arr}`);
+            console.log(`${textToCheck} does not exist in ${arr} - ADDING INTO ARRAY`);
             arr.push(textToCheck);
         }
     }
