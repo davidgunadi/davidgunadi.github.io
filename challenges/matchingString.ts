@@ -1,55 +1,74 @@
 /* eslint-disable no-console */
-/* eslint-disable no-empty */
-/* eslint-disable no-plusplus */
 
 export class Helper {
-    static getSubStringLowerCase(text: string, pos: number) {
-        return text.substring(pos - 1, pos).toLowerCase();
+    /**
+     * Get a substring of a string, first letter is pos 1, not 0
+     * @param text 
+     * @param pos 
+     * @returns 
+     */
+    static getSubStringInLowerCase(text: string, pos: number) {
+        let substring = text.substring(pos - 1, pos).toLowerCase();
+        console.log(`Getting substring position "${pos}" from the text "${text}", which is "${substring}"`);
+        return substring;
     }
 
-    static addNonDuplicateValueIntoArray(arr: string[], text: string) {
-        // Declare default status duplicate as false
-        let duplicate: boolean = false;
+    /**
+     * Iterate a value through an array and add it only if it is unique (does not exist in the array)
+     * @param arr
+     * @param value 
+     */
+    static addUniqueValueIntoArray(array: string[], valueToAdd: string) {
+        // Declare default value as unique
+        let isUnique: boolean = true;
 
-        // If text matches any item in the array, we set duplicate status to true
-        for (let i = 0; i < arr.length; i++) {
-            if (arr[i] === text) {
-                console.log(`${text} exists in ${arr} - NOT ADDING`);
-                duplicate = true;
+        // Iterate value through the array, and if it matches existing value, set value to not unique
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] === valueToAdd) {
+                console.log(`"${valueToAdd}" exists in array "${array}" --- xxxxx Ignoring xxxxx`);
+                isUnique = false;
             }
         }
 
-        // If duplicate status is false, we add the text into the array
-        if (duplicate === false) {
-            console.log(`${text} does not exist in ${arr} - ADDING INTO ARRAY`);
-            arr.push(text);
+        // If value is unique, then add it to the end of the array
+        if (isUnique === true) {
+            console.log(`"${valueToAdd}" does not exist in array "${array}" --- +++++++++++++++ Adding +++++++++++++++`);
+            array.push(valueToAdd);
         }
     }
 
+    /**
+     * Compare each letter in stringOne and stringTwo, and add unique matches to the array ignoring cases
+     * @param arrayName 
+     * @param stringOne 
+     * @param stringTwo 
+     */
     static addMatchingStringsIntoArray(arrayName: string[], stringOne: string, stringTwo: string) {
         // Iterate through each letter of stringOne
-        for (let counterOne = 1; counterOne <= stringOne.length; counterOne++) {
-            console.log(`Running Iteration ${counterOne} for first loop`);
+        for (let posA = 1; posA <= stringOne.length; posA += 1) {
+            console.log(`****************************** Running Iteration ${posA} for OUTER LOOP ******************************`);
 
             // Iterate through each letter of stringTwo
-            for (let counterTwo = 1; counterTwo <= stringTwo.length; counterTwo++) {
-                console.log(`Running Iteration ${counterTwo} for second loop`);
+            for (let posB = 1; posB <= stringTwo.length; posB += 1) {
+                console.log(`Running Iteration ${posB} for Inner LOOP`);
 
-                const letterOneToCheck = Helper.getSubStringLowerCase(stringOne, counterOne);
-                const letterTwoToCheck = Helper.getSubStringLowerCase(stringTwo, counterTwo);
+                const letterOneToCheck = Helper.getSubStringInLowerCase(stringOne, posA);
+                const letterTwoToCheck = Helper.getSubStringInLowerCase(stringTwo, posB);
 
                 // If letter in stringOne matches letter in stringTwo, call function 'addNonDuplicateValueIntoArray'
                 if (letterOneToCheck === letterTwoToCheck) {
-                    console.log(`${letterOneToCheck} matches ${letterTwoToCheck}`);
-                    Helper.addNonDuplicateValueIntoArray(arrayName, letterOneToCheck);
+                    console.log(`"${letterOneToCheck}" matches "${letterTwoToCheck}"`);
+                    Helper.addUniqueValueIntoArray(arrayName, letterOneToCheck);
+                } else {
+                    console.log(`"${letterOneToCheck}" does not match "${letterTwoToCheck}"`);
                 }
             }
         }
     }
 }
 
-const stringOne: string = 'AdA';
-const stringTwo: string = 'XDa';
+const stringOne: string = 'AdAss';
+const stringTwo: string = 'XDaxqs';
 const finalArray: string[] = [];
 
 Helper.addMatchingStringsIntoArray(finalArray, stringOne, stringTwo);
