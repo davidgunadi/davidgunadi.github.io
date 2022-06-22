@@ -1,23 +1,12 @@
 /* eslint-disable no-console */
 
 export class Helper {
-    /**
-     * Get a substring of a string, first letter is pos 1, not 0
-     * @param text 
-     * @param pos 
-     * @returns 
-     */
     static getSubStringInLowerCase(text: string, pos: number) {
         let substring = text.substring(pos - 1, pos).toLowerCase();
         console.log(`Getting substring position "${pos}" from the text "${text}", which is "${substring}"`);
         return substring;
     }
 
-    /**
-     * Iterate a value through an array and add it only if it is unique (does not exist in the array)
-     * @param arr
-     * @param value 
-     */
     static addUniqueValueIntoArray(array: string[], valueToAdd: string) {
         // Declare default value as unique
         let isUnique: boolean = true;
@@ -27,6 +16,7 @@ export class Helper {
             if (array[i] === valueToAdd) {
                 console.log(`"${valueToAdd}" exists in array "${array}" --- xxxxx Ignoring xxxxx`);
                 isUnique = false;
+                break;
             }
         }
 
@@ -37,12 +27,6 @@ export class Helper {
         }
     }
 
-    /**
-     * Compare each letter in stringOne and stringTwo, and add unique matches to the array ignoring cases
-     * @param arrayName 
-     * @param stringOne 
-     * @param stringTwo 
-     */
     static addMatchingStringsIntoArray(arrayName: string[], stringOne: string, stringTwo: string) {
         // Iterate through each letter of stringOne
         for (let posA = 1; posA <= stringOne.length; posA += 1) {
@@ -67,8 +51,8 @@ export class Helper {
     }
 }
 
-const stringOne: string = 'AdAss';
-const stringTwo: string = 'XDaxqs';
+const stringOne: string = '1122David';
+const stringTwo: string = 'Azizuldad211';
 const finalArray: string[] = [];
 
 Helper.addMatchingStringsIntoArray(finalArray, stringOne, stringTwo);
