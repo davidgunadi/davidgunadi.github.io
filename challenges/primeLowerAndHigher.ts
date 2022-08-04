@@ -22,7 +22,7 @@ function findNearestLowerPrimeNumber(input: string | number) {
     const checkLowerPrimeNumber = Number(input) - 1;
 
     if (checkLowerPrimeNumber < 2) {
-        return `There is no prime number below ${input}`;
+        return `There is no prime number below "${input}"`;
     }
 
     for (let i = checkLowerPrimeNumber; i > 0; i -= 1) {
