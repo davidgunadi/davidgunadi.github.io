@@ -1,16 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-        }
-        p, h1, h2, h3, h4, ul {
-            font-family: sans-serif;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Page iFrame</title>
+  <style>
+    /* Make sure body and html elements take up full height */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden; /* Prevents any scroll bars */
+    }
+
+    /* Style the iframe to take up the full viewport */
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none; /* Removes default iframe border */
+    }
+  </style>
 </head>
 <body>
+
     <script type="text/javascript">
         window.DocsBotAI = window.DocsBotAI || {};
         DocsBotAI.init = function(c) {
@@ -50,23 +62,9 @@
     <script type="text/javascript">
         DocsBotAI.init({id: "AtlaBaeyVZl4G3BijmeM/UNUG0R9s4N8BzxorDYqL"});
     </script>
-    <!-- <iframe 
-        src="https://docsbot.ai/iframe/AtlaBaeyVZl4G3BijmeM/UNUG0R9s4N8BzxorDYqL" 
-        width="650" 
-        height="800" 
-        frameborder="0" 
-        allowtransparency="true" 
-        scrolling="no">
-    </iframe> -->
-    <iframe src="https://docsbot.ai/chat/AtlaBaeyVZl4G3BijmeM/UNUG0R9s4N8BzxorDYqL" style="border: 0; width: 100%; height: 100%">Your browser doesn't support iFrames.</iframe>
-<!-- 
-    <iframe 
-    src="https://docsbot.ai/chat/AtlaBaeyVZl4G3BijmeM/UNUG0R9s4N8BzxorDYqL" 
-    width="100%" 
-    height="100%" 
-    frameborder="0" 
-    allowtransparency="true" 
-    scrolling="no"> -->
+  <iframe src="https://docsbot.ai/chat/AtlaBaeyVZl4G3BijmeM/UNUG0R9s4N8BzxorDYqL"></iframe>
+</body>
+</html>
 </iframe>
 </body>
 </html>
